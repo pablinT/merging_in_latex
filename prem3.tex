@@ -1,0 +1,449 @@
+
+%---------------------------------------------------------
+%  Cap 3 - tesis 
+%---------------------------------------------------------
+
+
+
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{graphicx}
+%\usepackage{dsfont}
+%\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+
+
+
+
+
+
+% THEOREMS -------------------------------------------------------
+\newtheorem{fed}{Definition}[section]
+\newtheorem{teo}[fed]{Theorem}
+\newtheorem{lem}[fed]{Lemma}
+\newtheorem{cor}[fed]{Corollary}
+\newtheorem{pro}[fed]{Proposition}
+\theoremstyle{definition}
+\newtheorem{rem}[fed]{Remark}
+\newtheorem{rems}[fed]{Remarks}
+\newtheorem{exa}[fed]{Example}
+\newtheorem{exas}[fed]{Examples}
+\newtheorem{num}[fed]{}
+
+% ----------------------------------------------------------------
+% ----------------------------------------------------------------
+% Settings
+% ----------------------------------------------------------------
+% ----------------------------------------------------------------
+
+\oddsidemargin 0in \topmargin -0.5in \textwidth 16.5truecm
+\textheight 23truecm
+
+% ----------------------------------------------------------------
+% ----------------------------------------------------------------
+% Definitions.
+% ----------------------------------------------------------------
+% ----------------------------------------------------------------
+\def\inv{^{-1}}
+\def\coma{,} % esto es muy truch, pero espero funcione
+
+
+\def\cA{\mathcal{A}}
+\def\cB{\mathcal{B}}
+\def\cC{\mathcal{C}}
+\def\ede{\mathcal{D}}
+\def\edemas{\mathcal{D}^+}
+\def\edep{\mathcal{P}(\mathcal{D})}
+\def\cE{\mathcal{E}}
+\def\cH{\mathcal{H}}
+
+%%%podria borrar uno de estos dos, pero por las dudas..
+\def\cK{\mathcal{K}}
+\def\ccK{\mathcal{K}}
+
+\def\cU{\mathcal{U}}
+\def\ele{\mathcal{L}}
+\def\cP{\mathcal{P}}
+\def\cO{\mathcal{O}}%aja!
+\def\cQ{\mathcal{Q}}
+\def\ese{\mathcal{S}}
+\def\ete{\mathcal{T}}
+\def\eme{\mathcal{M}}
+\def\ene{\mathcal{N}}
+\def\cW{\mathcal{W}}
+\def\cX{\mathcal{X}}
+\def\cY{\mathcal{Y}}
+\def\cZ{\mathcal{Z}}
+\def\inc{\subseteq}
+
+
+\def\suml{\sum\limits}
+\def\prodl{\prod\limits}
+
+
+%%%%%%%%%%
+%%%%comandos acortados
+%%%%%%%%%
+
+\def\bm{\left[\begin{array}}
+\def\em{\end{array}\right]}
+\def\ben{\begin{enumerate}}
+\def\een{\end{enumerate}}
+\def\beq{\begin{equation}}
+\def\eeq{\end{equation}}
+
+
+\def\bit{\begin{itemize}}
+\def\eit{\end{itemize}}
+\def\barr{\begin{array}}
+\def\earr{\end{array}}
+\def\igdef{\ \stackrel{\mbox{\tiny{def}}}{=}\ }
+\def\ighyp{\ \stackrel{\mbox{\tiny{hyp}}}{=}\ }
+\def\l{\mathbf{l}}
+\def\k{n}
+\def\w{\mathbf{w}}
+\def\v{\mathbf{v}}
+\def\x{\mathbf{x}}
+\def\eps{\varepsilon}
+\def\la{\lambda}
+\def\al{\alpha}
+\def\N{\mathbb{N}}
+\def\R{\mathbb{R}}
+\def\S{\mathbb{S}}
+\def\C{\mathbb{C}}
+\def\I{\mathbb{I}}
+\def\Z{\mathbb{Z}}
+\def\cA{\mathcal{A}}
+\def\cI{\mathcal{I}}
+\def\T{\mathbb{T}}
+
+
+
+\def\casa{\mathcal{A}_{sa}}
+\def\capo{\mathcal{A}_{+}}
+\def\uno{\mbox{\textbf{e}}}
+
+\def\ua{^\uparrow}
+\def\da{^\downarrow}
+\def\caop{\cC_\ca^{\rm op}(\cF_0)}
+\def\s{\mathfrak{s}}
+\def\nuel{\nu(\la\coma t)}
+\def\muel{\mu(\la\coma t)}
+
+
+\def\cx{C(X)}
+\def\cstar{$C^*$-algebra $\;$}
+\def\cstars{$C^*$-algebras $\;$}
+
+
+\def\bp{\veebar}
+\def\TT{{\rm T} \hskip -5pt{\rm T} \hskip4pt}
+\def\bull{\vrule height 1.0ex width .4ex depth -.1ex }
+\def\vacio{\emptyset}
+\def\orto{^\perp}
+\def\inc{\subseteq}
+\def\subcer{\sqsubseteq}
+
+
+\def\pausa{\medskip\noi}
+%\def\py{\peso{and}}
+
+
+\def\py{\peso{y}}
+
+
+
+%\def\QED{\hfill \bull}
+\def\sii{ if and only if }
+\def\inv{^{-1}}
+\def\*A{\#\sb A}
+\def\pa{P}
+\def\eps{\varepsilon}
+\def\fii{\varphi }
+\def\fia{\varphi _a}
+\def\fib{\varphi _b}
+\def\uni{{\cal U}(\H )}
+\def\H{{\cal H}}
+\def\M{{\mathcal M}}
+\def\N{{\mathcal N}}
+%\def\unia{{\cal U}_a}
+%\def\uniA{{\cal U}_A}
+%\def\unib{{\cal U}_b}
+\def\Gpo{Gl(\H)^+}
+\def\glh{Gl(\cH)}
+\def\ca{L(\H ) }
+\def\cam{L(\H )^+ }
+\def\As{\ca _s}
+\def\Aq{\ca _q}
+\def\cH{{\cal H}}
+\def\dem{\paragraph{Proof.}}
+\def\cA{{\cal A}}
+\def\cP{{\cal P}}
+\def\kerp{\cQ^P}
+\def\cQ{{\cal Q}}
+\def\cS{{\cal S}}
+\def\cT{{\cal T}}
+\def\cM{{\cal M}}
+\def\cN{{\cal N}}
+\def\cac{{\cal A}_{a\mrai ba\mrai}}
+\def\PA{P_{A, \cS}}
+\def\PAn{P_{A, \cS_n}}
+\def\PB{P_{B, \cS}}
+\def\QA{Q_{A,\cS} }
+\def\csha{\Sigma (P, A)}
+\def\PAS{\cP(A, \cS)}
+\def\PBS{\cP(B, \cS)}
+\def\str{^{\#}}
+\def\spline{sp \ (T, \cS , \xi )}
+\def\splineA{sp \ (A\rai, \cS , \xi )}
+\def\rai{^{1/2}}
+\def\mrai{^{-1/2}}
+\def\pim{\pi^+}
+\def\piA{\pi_A}
+\def\api{\langle}
+\def\cpi{\rangle}
+\def\pou{\Theta}
+\def\noi{\noindent}
+\def\qa{\cQ}
+\def\csta{C$^*$-algebra}
+\def\upi{\Upsilon}
+\def\bm{\left(\begin{array}}
+\def\em{\end{array}\right)}\def\Gs{G^s}
+\def\ben{\begin{enumerate}}
+\def\een{\end{enumerate}}
+%\def\begin{equation}{\begin {equation}}
+%\def\end{equation}{\end {equation}}
+\def\barr{\begin{array}}
+\def\earr{\end{array}}
+\def\iiff{if and only if }
+\def\inv{^{-1}}
+\def\pa{\cP}
+\def\auta{{\cal S} \sb a }
+\def\U{\cal U (\H )}
+\def\H{{\cal H}}
+%\def\glh{{GL(\H)}}
+%\def\g+{{\glh^+}}
+\def\lh{{L(\H)}}
+\def\lh+{{\lh^+}}
+\def\cas{{\ca_s}}
+\def\gs{{\glh_s}}
+%\def\der{Der(\M)}
+\def\pia{\pi\sb \alpha}
+\def\za{{\cal Z} (\A1)}
+\def\la{\lambda}
+\def\eps{\varepsilon}
+\def\cX{{\cal X}}
+\def\cY{{\cal Y}}
+\def\cZ{{\cal Z}}
+\def\com{$(A, \cS)$ is compatible}
+\def\compn{$(A, \cS_n)$ is compatible}
+\def\comB{$(B, \cS)$ is compatible}
+\def\EOE{\hfill$\triangle$}
+
+\newcommand{\trivial}{\{0\}}
+
+%\renewcommand{\qed}{\hfill$\blacksquare$}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% conjuntos matriciales
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\cene}{\mathbb{C}^n}
+\newcommand{\mat}{\mathcal{M}_d(\mathbb{C})}
+\newcommand{\matn}{\mathcal{M}_n(\mathbb{C})}
+\newcommand{\matreal}{\mathcal{M}_n(\mathbb{R})}
+\newcommand{\matsa}{\mathcal{H}(n)}
+\newcommand{\matsad}{\mathcal{H}(d)}
+\newcommand{\matsai}{\mathcal{H}_\inter(n)}
+\newcommand{\mattr}{\mathcal{TS}(n)}
+\newcommand{\matu}{\mathcal{U}(n)}
+\newcommand{\matud}{\mathcal{U}(d)}
+\newcommand{\matper}{\mathcal{U_P}(n)}
+\newcommand{\matpos}{\mat^+}
+\newcommand{\defpos}{\cP(d)}
+\newcommand{\matposn}{\matn^+}
+\newcommand{\matnpos}{\matn^+}
+\newcommand{\matinv}{\mathcal{G}\textit{l}\,(n)}
+%\newcommand{\matinvd}{\mathcal{G}\textit{l}\,(d)}
+\newcommand{\matinvd}{\mathcal{G}\textit{l}\,(d)}
+\def\gld{\matinvd^+}
+
+\newcommand{\matinvp}[1]{\mathcal{G}\textit{l}\,(#1)^+}
+\newcommand{\matde}{\mathcal{DS}\,(n)}
+\newcommand{\matrec}[1]{\mathcal{M}_{#1} (\mathbb{C})}
+\newcommand{\dmatrix}[3]{
+	\begin{pmatrix}
+	{#1}_{\mbox{\tiny{${#3},{#2}$}}}& {#1}_{\mbox{\tiny{${#3},{#2}^{\bot}$}}}\\
+	{#1}_{\mbox{\tiny{${#3}^{\bot},{#2}$}}}& {#1}_{\mbox{\tiny{${#3}^{\bot},{#2}^{\bot}$}} }
+	\end{pmatrix}}
+
+
+% ----------------------------------------------------------------
+% ----------------------------------------------------------------
+% Math operators
+% ----------------------------------------------------------------
+% ----------------------------------------------------------------
+
+\DeclareMathOperator{\Preal}{Re} \DeclareMathOperator{\Pim}{Im}
+\DeclareMathOperator*{\limsot}{\lim}
+\DeclareMathOperator*{\convsotdpre}{\searrow}
+\DeclareMathOperator*{\convsotipre}{\nearrow}
+\DeclareMathOperator{\Tr}{Tr} \DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator*{\truchada}{=}
+\DeclareMathOperator*{\inversible}{GL}
+\DeclareMathOperator{\leqp}{\leqslant}
+\DeclareMathOperator{\geqp}{\geqslant}
+
+
+
+\DeclareMathOperator{\leqt}{\preceq}
+\DeclareMathOperator{\geqt}{\succeq}
+\DeclareMathOperator{\leqrt}{\precsim}
+\DeclareMathOperator{\geqrt}{\succsim}
+\DeclareMathOperator{\leqsm}{\prec}
+\DeclareMathOperator{\geqsm}{\succ}
+\DeclareMathOperator{\leqm}{\preccurlyeq}
+\DeclareMathOperator{\geqm}{\succcurlyeq}
+\DeclareMathOperator{\cc}{\mbox{cc}}
+
+
+% ----------------------------------------------------------------
+% ----------------------------------------------------------------
+% New commands
+% ----------------------------------------------------------------
+% ----------------------------------------------------------------
+
+
+\newcommand{\pint}[2]{\displaystyle \left \langle #1,#2 \right\rangle}
+%\newcommand{\pint}[1]{\langle #1 \rangle}
+\newcommand{\dpint}[1]{\langle #1 \rangle_{D}}
+\newcommand{\corch}[1]{\left[ #1 \right]}
+
+\newcommand{\paren}[1]{\left(#1\right)}
+%\newcommand{\paren}[1]{\ensuremath{\left(#1\right)}}
+
+\newcommand{\llav}[1]{\left\{#1\right\}}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+
+
+
+
+
+
+
+
+\newcommand{\hil}{\mathcal{H}}
+\newcommand{\op}{L(\mathcal{H})}
+\newcommand{\opsa}{L_{sa}(\mathcal{H})}
+\newcommand{\posop}{L(\mathcal{H})^+}
+\newcommand{\gop}{GL(\mathcal{H})}
+\newcommand{\gposop}{GL(\mathcal{H})^+}
+
+\newcommand{\bon}{\{e_k\}_{k\in \mathbb{N}}}
+\newcommand{\bonn}{\{e_n\}_{n\in \mathbb{N}}}
+\newcommand{\primerosn}{\{e_k\}_{1\leq k\leq n}}
+\newcommand{\briesz}{\{x_k\}_{k\geq 1}}
+\newcommand{\Dpint}[1]{\displaystyle \left \langle #1 \right\rangle_D}
+\newcommand{\generado}[1]{\mbox{span}\left\{#1\right\}}
+\newcommand{\conv}{\xrightarrow[n\rightarrow\infty]{}}
+\newcommand{\convnorm}{\xrightarrow[n\rightarrow\infty]{\|\,\cdot\,\|}}
+\newcommand{\convnormd}{\convsotdpre_{n\rightarrow\infty}^{\|\,\cdot\,\|}}
+\newcommand{\convnormi}{\convsotipre_{n\rightarrow\infty}^{\|\,\cdot\,\|}}
+
+\newcommand{\convsot}{\xrightarrow[n\rightarrow\infty]{\mbox{\tiny{S.O.T.}}}}
+\newcommand{\convsotd}{\convsotdpre_{n\rightarrow\infty}^{\mbox{\tiny
+\textbf SOT}}}
+\newcommand{\convsoti}{\convsotipre_{n\rightarrow\infty}^{\mbox{\tiny
+\textbf SOT}}}
+
+\newcommand{\convwotd}{\convsotdpre_{n\rightarrow\infty}^{\mbox{\tiny
+\textbf WOT}}}
+\newcommand{\convwoti}{\convsotipre_{n\rightarrow\infty}^{\mbox{\tiny
+\textbf WOT}}}
+\newcommand{\convwot}{\xrightarrow[n\rightarrow\infty]{\mbox{\tiny{W.O.T.}}}}
+
+\newcommand{\convctp}{\xrightarrow[n\rightarrow\infty]{\mbox{\tiny{C.T.P.}}}}
+
+\newcommand{\nui}[1]{||| #1 |||}
+\newcommand{\ninf}[1]{\left\| #1 \right\|_{\infty}}
+
+\newcommand{\espro}[2]{E_{#1}\left[#2\right]}
+
+%\newcommand{\op}{L(\mathcal{H})}
+% Esto es para que anden los comandos de Demetrio (la mayoria son de frames)
+
+\def\ssec{\cW = \{ W_i\}_{i\in I}}
+\def\sseck{\cW = \{ W_k\}_{k\in \NN}}
+\def\ssecV{\cV = \{ V_i\}_{i\in I}}
+\def\refi{\cV = \{ V_i\}_{i\in J}}
+
+\def\FS {\cW_w\,}
+\def\sfram{\cW_w  = (w_i\, ,\, W_i)_{i\in I}}
+\def\sframJ{ (w_i\, ,\, W_i)_{i\in J}}
+
+\def\sframN{\cW_w = (w_k\, ,\, W_k)_{k\in \NN}}
+\def\FS {\cW_w\,}
+\def\sfram{\cW_w  = (w_i\, ,\, W_i)_{i\in I}}
+\def\sframJ{ (w_i\, ,\, W_i)_{i\in J}}
+
+\def\sframN{\cW_w = (w_k\, ,\, W_k)_{k\in \NN}}
+
+\def \linm{\ell^\infty _+ (I)}
+\def \linmJ{\ell^\infty _+ (J)}
+\def \linmN{\ell^\infty _+ (\NN)}
+\def\ds{\displaystyle} 
+\newcommand{\exe}[1]{E \left(#1\right)}
+
+%operador de sintesis
+\newcommand{\tfs}{T_{\cW_w}}
+\def\ra{\rightarrow}
+
+\newcommand{\peso}[1]{ \quad \text{ #1 } \quad }
+
+\newcommand{\fram}{\{f_n\}_{n\in \mathbb{N}}}
+% \newcommand{\sfram}{\{f_i\}_{i\in I}}
+\newcommand{\sframn}{\{f_i\}_{i\in I_n}}
+
+\def\noi{\noindent}
+\def\QED{\hfill $\blacksquare$}
+
+
+
+
+
+
+
+
+%\newcommand{\bon}{\{e_i\}_{i\in \mathbb{N}}}
+% ----------------------------------------------------------------
+% ----------------------------------------------------------------
+% Math operators
+% ----------------------------------------------------------------
+% ----------------------------------------------------------------
+\DeclareMathOperator{\ran}{R} \DeclareMathOperator{\nuc}{N}
+\DeclareMathOperator{\dist}{dist}
+
+% ----------------------------------------------------------------
+% ----------------------------------------------------------------
+% New commands
+% ----------------------------------------------------------------
+% ----------------------------------------------------------------
+%\newcommand{\pint}[1]{\displaystyle \left \langle #1 \right\rangle}
+%\newcommand{\hil}{\mathcal{H}}
+\newcommand{\angd}[2]{c_0\left(\,#1,\,#2\,\right)}
+\newcommand{\angf}[2]{c\left(\,#1,\,#2\,\right)}
+%\newcommand{\generado}[1]{\mbox{span}\left\{#1\right\}}
+% ----------------------------------------------------------------
+% ----------------------------------------------------------------
+% End of definitions
+% ----------------------------------------------------------------
+% ----------------------------------------------------------------
+
+% ----------------------------------------------------------------
+

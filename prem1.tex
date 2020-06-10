@@ -1,0 +1,530 @@
+%---------------------------------------------------------
+%  Cap 1 - esqueleto 
+%---------------------------------------------------------
+
+\documentclass[a4paper,12pt]{report}
+
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{graphicx}
+%\usepackage{dsfont}
+%\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+
+
+\usepackage{amsfonts, amsthm, amsmath, amsxtra, amstext,amssymb, latexsym} % fuentes
+
+%\usepackage{pxfonts} %%% le pone una fuente curvita
+\usepackage{imakeidx}
+\makeindex
+
+\usepackage{parskip}
+\setlength{\parskip}{1.3ex plus 0.2ex minus 0.2ex} % linea entre parrafos
+\setlength{\parindent}{1em} % sangria
+
+
+\usepackage[
+ pagebackref,
+ bookmarksnumbered=true,
+ breaklinks=true,
+ pdfborder=0 0 0
+]{hyperref}  % backref linktocpage pagebackref
+\pdfcompresslevel=9
+\pdfadjustspacing=1 
+\PassOptionsToPackage{dvipsnames}{xcolor}
+        \RequirePackage{xcolor} % [dvipsnames] 
+\definecolor{Maroon}{cmyk}{0, 0.87, 0.68, 0.32}
+\definecolor{halfgray}{gray}{0.55}
+\definecolor{webbrown}{rgb}{.6,0,0}
+\definecolor{webgreen}{rgb}{0,.5,0}
+\definecolor{RoyalBlue}{cmyk}{1, 0.50, 0, 0}
+\hypersetup{%
+  %draft,     % = no hyperlinking at all (useful in b/w printouts)
+  colorlinks=true, linktocpage=true, pdfstartpage=2, pdfstartview=FitV,%
+  % uncomment the following line if you want to have black links (e.g., for printing)
+  %colorlinks=false, linktocpage=false, pdfborder={0 0 0}, pdfstartpage=3, pdfstartview=FitV,% 
+  breaklinks=true, pdfpagemode=UseNone, pageanchor=true, pdfpagemode=UseOutlines,%
+  plainpages=false, bookmarksnumbered, bookmarksopen=true, bookmarksopenlevel=1,%
+  hypertexnames=true, pdfhighlight=/O,%nesting=true,%frenchlinks,%
+  urlcolor=webbrown, linkcolor=RoyalBlue, citecolor=webgreen, %pagecolor=RoyalBlue,%
+  %urlcolor=Black, linkcolor=Black, citecolor=Black, %pagecolor=Black,%
+%  pdftitle={\myTitle},%
+%  pdfauthor={\textcopyright, \myName, \myUni, \myFaculty},%
+  pdfsubject={},%
+  pdfkeywords={},%
+  pdfcreator={pdfLaTeX},%
+  pdfproducer={LaTeX with 'Venia latexando como un campeon'}%
+}
+\newcommand{\backrefnotcitedstring}{\relax}%(Not cited.)
+\renewcommand*{\backref}[1]{}  % disable standard
+\renewcommand*{\backrefalt}[4]{% detailed backref
+  \ifcase #1 %
+  \backrefnotcitedstring%
+  \or%
+  (citado en p\'agina #2)%
+  \else%
+  (citado en p\'aginas #2)%
+  \fi}%
+\makeatletter
+\let\stdl@section\l@section
+\renewcommand*{\l@section}[2]{%
+  \stdl@section{\textcolor{black}{#1}}{\textcolor{blue}{#2}}}
+\makeatother
+
+\usepackage{epsfig}   % añadir figuras en eps
+\usepackage{graphicx} % añadir JPG, PDF, PNG compilando en pdf
+\usepackage{enumerate}% Para cambiar el tipo de enumeración de las
+                      % listas
+\usepackage{fancyhdr} % Estilo de página
+\usepackage{lastpage} % Para usar el comando que nos devuelve el
+                      % número de la última página, útil para numerar
+                      % las páginas (ej: página 1 de 5)
+\usepackage{cancel}   % para.. bueno, eso. 
+%\usepackage{simpsons}
+
+\pagestyle{fancy} % Estilo de las páginas
+
+
+
+\newcommand{\toclesssection}[1]{\section*{#1}\addtocounter{section}{1}}
+%esto es para no manchar toda la ropa al lavar la media roja
+
+\renewcommand{\subsectionmark}[1]{\markboth{#1}{#1}}
+\renewcommand{\sectionmark}[1]{\markboth{#1}{#1}} % Necesario para que
+                                                  % el \leftmark
+                                                  % devuelva el título
+                                                  % de la sección pero
+                                                  % no el número
+
+%%%\renewcommand{\headrulewidth}{0.4pt}% Grosor de la linea de la
+                                    % cabecera, si el valor es 0 la
+                                    % linea desaparece
+%%%\renewcommand{\footrulewidth}{0.4pt}% Grosor de la linea del pie, si
+                                    % el valor es 0 la linea
+                                    % desaparece
+
+% Cabecera y pie de página
+% Páginas pares
+\fancyhead[R]{\leftmark}
+\fancyhead[C]{}
+\fancyhead[L]{Tesis de Doctorado}
+
+\fancyfoot[R]{\thepage}
+\fancyfoot[C]{}
+\fancyfoot[L]{Departamento de Matemática - UNLP}
+
+
+% Ahora definimos los Teoremas, definiciones, corolarios, lemas y
+% demás, lo que está entre llaves es la abreviatura y lo que está
+% entre corchetes es la numeración que deben de seguir, el * implica
+% que no se numera.----- chusmear cual se puede volar
+
+
+% THEOREMS -------------------------------------------------------
+\newtheorem{fed}{Definición}[section]
+\newtheorem{teo}[fed]{Teorema}
+\newtheorem{lem}[fed]{Lema}
+\newtheorem{cor}[fed]{Corolario}
+\newtheorem{pro}[fed]{Proposición}
+
+\theoremstyle{definition}
+\newtheorem{rem}[fed]{Observación}
+\newtheorem{rems}[fed]{Remarks}
+\newtheorem{exa}[fed]{Ejemplo}
+\newtheorem{exas}[fed]{Examples}
+\newtheorem{num}[fed]{}
+
+\newcommand{\norm}[1]{\left|\left| {#1} \right|\right|}
+%\newcommand{\dnorm}[1]{\left|\left|\left|\left {#1} \right|\right \right|\right|}
+\newcommand{\prin}[1]{\langle {#1} \rangle}
+\newcommand{\modu}[1] { \left| {#1} \right| }
+\newcommand{\tr}[1]{\textnormal{tr}\left({#1}\right)}
+
+
+
+
+\renewcommand{\eqref}[1]{ \textnormal{(\ref{#1})} }
+\renewcommand{\qed}{\hfill \ensuremath{\blacksquare}}
+%\renewenvironment{proof}{{\bfseries Demostraci\'on}}-intento.fallido
+
+
+% ----------------------------------------------------------------
+% ----------------------------------------------------------------
+% ----------------------------------------------------------------
+
+\def\inv{^{-1}}
+
+\def\cA{{\cal A}}
+\def\cP{{\cal P}}
+\def\cQ{{\cal Q}}
+\def\cS{{\cal S}}
+\def\cT{{\cal T}}
+\def\cM{{\cal M}}
+\def\cN{{\cal N}}
+\def\M{{\mathcal M}}
+\def\N{{\mathcal N}}
+
+\def\cac{{\cal A}_{a\mrai ba\mrai}}
+
+\def\cA{\mathcal{A}}
+\def\cB{\mathcal{B}}
+\def\cC{\mathcal{C}}
+\def\C{\mathcal{C}}
+\def\ede{\mathcal{D}}
+\def\edemas{\mathcal{D}^+}
+\def\edep{\mathcal{P}(\mathcal{D})}
+\def\cE{\mathcal{E}}
+\def\cH{\mathcal{H}}
+\def\cK{\mathcal{K}}
+\def\ccK{\mathcal{K}}
+\def\cU{\mathcal{U}}
+\def\ele{\mathcal{L}}
+\def\cP{\mathcal{P}}
+\def\cQ{\mathcal{Q}}
+
+
+\def\cO{{\mathcal O}}
+
+\def\R{\mathbb{R}}
+
+\def\ese{\mathcal{S}}
+\def\ete{\mathcal{T}}
+\def\eme{\mathcal{M}}
+\def\ene{\mathcal{N}}
+\def\cW{\mathcal{W}}
+\def\cX{\mathcal{X}}
+\def\cY{\mathcal{Y}}
+\def\cZ{\mathcal{Z}}
+\def\casa{\mathcal{A}_{sa}}
+\def\capo{\mathcal{A}_{+}}
+
+
+
+\def\inc{\subseteq}
+
+\def\suml{\sum\limits}
+
+
+\def\uno{\mbox{\textbf{e}}}
+
+
+\def\cx{C(X)}
+\def\cstar{$C^*$-algebra $\;$}
+\def\cstars{$C^*$-algebras $\;$}
+
+
+
+\def\bp{\veebar}
+\def\TT{{\rm T} \hskip -5pt{\rm T} \hskip4pt}
+\def\bull{\vrule height 1.0ex width .4ex depth -.1ex }
+\def\vacio{\emptyset}
+\def\orto{^\perp}
+\def\inc{\subseteq}
+\def\subcer{\sqsubseteq}
+
+
+%\def\QED{\hfill \bull}
+\def\sii{ if and only if }
+\def\inv{^{-1}}
+\def\*A{\#\sb A}
+\def\pa{P}
+\def\eps{\varepsilon}
+\def\fii{\varphi }
+\def\fia{\varphi _a}
+\def\fib{\varphi _b}
+\def\uni{{\cal U}(\H )}
+\def\H{{\cal H}}
+
+%\def\unia{{\cal U}_a}
+%\def\uniA{{\cal U}_A}
+%\def\unib{{\cal U}_b}
+\def\Gpo{Gl(\H)^+}
+\def\glh{Gl(\cH)}
+\def\ca{L(\H ) }
+\def\cam{L(\H )^+ }
+\def\As{\ca _s}
+\def\Aq{\ca _q}
+\def\cH{{\cal H}}
+\def\dem{\paragraph{Proof.}}
+\def\kerp{\cQ^P}
+
+
+\def\PA{P_{A, \cS}}
+\def\PAn{P_{A, \cS_n}}
+\def\PB{P_{B, \cS}}
+\def\QA{Q_{A,\cS} }
+\def\csha{\Sigma (P, A)}
+\def\PAS{\cP(A, \cS)}
+\def\PBS{\cP(B, \cS)}
+\def\str{^{\#}}
+\def\spline{sp \ (T, \cS , \xi )}
+\def\splineA{sp \ (A\rai, \cS , \xi )}
+\def\rai{^{1/2}}
+\def\mrai{^{-1/2}}
+\def\pim{\pi^+}
+\def\piA{\pi_A}
+\def\api{\langle}
+\def\cpi{\rangle}
+\def\pou{\Theta}
+\def\noi{\noindent}
+\def\qa{\cQ}
+\def\csta{C$^*$-algebra}
+\def\upi{\Upsilon}
+\def\bm{\left(\begin{array}}
+\def\em{\end{array}\right)}
+\def\Gs{G^s}
+\def\ben{\begin{enumerate}}
+\def\een{\end{enumerate}}
+%\def\begin{equation}{\begin {equation}}
+%\def\end{equation}{\end {equation}}
+\def\barr{\begin{array}}
+\def\earr{\end{array}}
+\def\iiff{if and only if }
+\def\inv{^{-1}}
+\def\pa{\cP}
+\def\auta{{\cal S} \sb a }
+\def\U{\cal U (\H )}
+\def\H{{\cal H}}
+%\def\glh{{GL(\H)}}
+%\def\g+{{\glh^+}}
+\def\lh{{L(\H)}}
+\def\lh+{{\lh^+}}
+\def\cas{{\ca_s}}
+\def\gs{{\glh_s}}
+%\def\der{Der(\M)}
+\def\pia{\pi\sb \alpha}
+\def\za{{\cal Z} (\A1)}
+\def\la{\lambda}
+\def\eps{\varepsilon}
+\def\cX{{\cal X}}
+\def\cY{{\cal Y}}
+\def\cZ{{\cal Z}}
+\def\com{$(A, \cS)$ is compatible}
+\def\compn{$(A, \cS_n)$ is compatible}
+\def\comB{$(B, \cS)$ is compatible}
+\def\EOE{\hfill$\triangle$}
+
+
+
+\newcommand{\corch}[1]{\left[ #1 \right]}
+
+\newcommand{\trivial}{\{0\}}
+
+
+%\renewcommand{\qed}{\hfill$\blacksquare$}
+
+
+
+
+
+% ----------------------------------------------------------------
+% ----------------------------------------------------------------
+% Math operators
+% ----------------------------------------------------------------
+% ----------------------------------------------------------------
+
+\DeclareMathOperator{\Preal}{Re} \DeclareMathOperator{\Pim}{Im}
+\DeclareMathOperator*{\limsot}{\lim}
+\DeclareMathOperator*{\convsotdpre}{\searrow}
+\DeclareMathOperator*{\convsotipre}{\nearrow}
+\DeclareMathOperator{\Tr}{Tr} 
+%\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator*{\truchada}{=}
+\DeclareMathOperator*{\inversible}{GL}
+
+\DeclareMathOperator{\leqt}{\preceq}
+\DeclareMathOperator{\geqt}{\succeq}
+\DeclareMathOperator{\leqrt}{\precsim}
+\DeclareMathOperator{\geqrt}{\succsim}
+\DeclareMathOperator{\leqsm}{\prec}
+\DeclareMathOperator{\geqsm}{\succ}
+\DeclareMathOperator{\leqm}{\preccurlyeq}
+\DeclareMathOperator{\geqm}{\succcurlyeq}
+\DeclareMathOperator{\cc}{\mbox{cc}}
+
+
+
+
+\newcommand{\pint}[2]{\displaystyle \left \langle #1,#2 \right\rangle}
+
+\newcommand{\hil}{\mathcal{H}}
+\newcommand{\op}{L(\mathcal{H})}
+\newcommand{\opsa}{L_{sa}(\mathcal{H})}
+\newcommand{\posop}{L(\mathcal{H})^+}
+\newcommand{\gop}{GL(\mathcal{H})}
+\newcommand{\gposop}{GL(\mathcal{H})^+}
+
+\newcommand{\bon}{\{e_k\}_{k\in \mathbb{N}}}
+\newcommand{\bonn}{\{e_n\}_{n\in \mathbb{N}}}
+\newcommand{\primerosn}{\{e_k\}_{1\leq k\leq n}}
+\newcommand{\briesz}{\{x_k\}_{k\geq 1}}
+\newcommand{\Dpint}[1]{\displaystyle \left \langle #1 \right\rangle_D}
+\newcommand{\generado}[1]{\mbox{span}\left\{#1\right\}}
+
+
+ 
+
+% ----------------------------------------------------------------
+% ----------------- convergencias
+% ----------------------------------------------------------------
+
+\newcommand{\conv}{\xrightarrow[n\rightarrow\infty]{}}
+\newcommand{\convnorm}{\xrightarrow[n\rightarrow\infty]{\|\,\cdot\,\|}}
+\newcommand{\convnormd}{\convsotdpre_{n\rightarrow\infty}^{\|\,\cdot\,\|}}
+\newcommand{\convnormi}{\convsotipre_{n\rightarrow\infty}^{\|\,\cdot\,\|}}
+
+\newcommand{\convsot}{\xrightarrow[n\rightarrow\infty]{\mbox{\tiny{S.O.T.}}}}
+\newcommand{\convsotd}{\convsotdpre_{n\rightarrow\infty}^{\mbox{\tiny
+\textbf SOT}}}
+\newcommand{\convsoti}{\convsotipre_{n\rightarrow\infty}^{\mbox{\tiny
+\textbf SOT}}}
+
+\newcommand{\convwotd}{\convsotdpre_{n\rightarrow\infty}^{\mbox{\tiny
+\textbf WOT}}}
+\newcommand{\convwoti}{\convsotipre_{n\rightarrow\infty}^{\mbox{\tiny
+\textbf WOT}}}
+\newcommand{\convwot}{\xrightarrow[n\rightarrow\infty]{\mbox{\tiny{W.O.T.}}}}
+
+\newcommand{\convctp}{\xrightarrow[n\rightarrow\infty]{\mbox{\tiny{C.T.P.}}}}
+
+\newcommand{\nui}[1]{||| #1 |||}
+\newcommand{\ninf}[1]{\left\| #1 \right\|_{\infty}}
+
+\newcommand{\espro}[2]{E_{#1}\left[#2\right]}
+
+%\newcommand{\op}{L(\mathcal{H})}
+
+% ----------------------------------------------------------------
+% -------------- familias de marcos de vectores y de fusion
+% ----------------------------------------------------------------
+
+
+\def\ssec{\cW = \{ W_i\}_{i\in I}}
+\def\sseck{\cW = \{ W_k\}_{k\in \NN}}
+\def\ssecV{\cV = \{ V_i\}_{i\in I}}
+\def\refi{\cV = \{ V_i\}_{i\in J}}
+
+
+\def\sfram{\cW_w  = (w_i\, ,\, W_i)_{i\in I}}
+\def\sframJ{ (w_i\, ,\, W_i)_{i\in J}}
+\def\sframN{\cW_w = (w_k\, ,\, W_k)_{k\in \NN}}
+\def\FS {\cW_w\,}
+\def\sfram{\cW_w  = (w_i\, ,\, W_i)_{i\in I}}
+\def\sframJ{ (w_i\, ,\, W_i)_{i\in J}}
+\def\sframN{\cW_w = (w_k\, ,\, W_k)_{k\in \NN}}
+
+\def \linm{\ell^\infty _+ (I)}
+\def \linmJ{\ell^\infty _+ (J)}
+\def \linmN{\ell^\infty _+ (\NN)}
+
+\newcommand{\exe}[1]{E \left(#1\right)}
+
+%operador de sintesis
+\newcommand{\tfs}{T_{\cW_w}}
+
+\def\ra{\rightarrow}
+
+%\newcommand{\peso}[1]{ \quad \text{ #1 } \quad }
+
+\newcommand{\fram}{\{f_n\}_{n\in \mathbb{N}}}
+% \newcommand{\sfram}{\{f_i\}_{i\in I}}
+\newcommand{\sframn}{\{f_i\}_{i\in I_n}}
+
+
+
+\newcommand{\llav}[1]{\{#1\}}
+
+
+
+% ----------------------------------------------------------------
+% -------------- coqueteria del tex
+% ----------------------------------------------------------------
+
+
+\def\ds{\displaystyle} 
+\def\noi{\noindent}
+\def\QED{\hfill $\blacksquare$}
+
+
+\def\coma{\, , \, }
+\def\pausa{\medskip\noi}
+
+\newcommand{\peso}[1]{ \quad \text{ #1 } \quad }
+
+
+\def\py{\peso{and}}
+
+
+
+%\newcommand{\bon}{\{e_i\}_{i\in \mathbb{N}}}
+% ----------------------------------------------------------------
+% ----------------------------------------------------------------
+% Math operators
+% ----------------------------------------------------------------
+% ----------------------------------------------------------------
+\DeclareMathOperator{\ran}{R} \DeclareMathOperator{\nuc}{N}
+\DeclareMathOperator{\dist}{dist}
+
+% ----------------------------------------------------------------
+% ----------------------------------------------------------------
+% ángulos y producto interno
+% ----------------------------------------------------------------
+% ----------------------------------------------------------------
+
+%\newcommand{\pint}[1]{\displaystyle \left \langle #1 \right\rangle}
+%\newcommand{\hil}{\mathcal{H}}
+\newcommand{\angd}[2]{c_0\left(\,#1,\,#2\,\right)}
+\newcommand{\angf}[2]{c\left(\,#1,\,#2\,\right)}
+%\newcommand{\generado}[1]{\mbox{span}\left\{#1\right\}}
+% ----------------------------------------------------------------
+% ----------------------------------------------------------------
+
+
+% ----------------------------------------------------------------
+% ----------------------------------------------------------------
+% espacios de vectores y matrices 
+% ----------------------------------------------------------------
+% ----------------------------------------------------------------
+
+\newcommand{\cene}{\mathbb{C}^n}
+\newcommand{\cede}{\mathbb{C}^d}
+
+\newcommand{\mat}{\mathcal{M}_d(\mathbb{C})}
+\newcommand{\matn}{\mathcal{M}_n(\mathbb{C})}
+\newcommand{\matreal}{\mathcal{M}_n(\mathbb{R})}
+\newcommand{\matsa}{\mathcal{H}(n)}
+\newcommand{\matsad}{\mathcal{H}(d)}
+\newcommand{\matsai}{\mathcal{H}_\inter(n)}
+\newcommand{\mattr}{\mathcal{TS}(n)}
+\newcommand{\matu}{\mathcal{U}(n)}
+\newcommand{\matud}{\mathcal{U}(d)}
+\newcommand{\matper}{\mathcal{U_P}(n)}
+\newcommand{\matpos}{\mat^+}
+\newcommand{\defpos}{\cP(d)}
+\newcommand{\matposn}{\matn^+}
+\newcommand{\matnpos}{\matn^+}
+\newcommand{\matinv}{\mathcal{G}\textit{l}\,(n)}
+
+\newcommand{\matinvd}{\mathcal{G}\textit{l}\,(d)}
+\def\gld{\matinvd^+}
+
+
+
+\def\I_d{\mathbb{I}_d}
+
+
+%%%% para la mayo
+
+\def\ua{^\uparrow}
+\def\da{^\downarrow}
+
+\DeclareMathOperator{\leqp}{\leqslant}
+\DeclareMathOperator{\geqp}{\geqslant}
+
+
+
+
